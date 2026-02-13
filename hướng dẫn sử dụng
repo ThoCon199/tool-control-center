@@ -1,0 +1,7 @@
+# =========================
+# REMOTE SYSTEM CONTROL
+# - disable_all: Tắt toàn bộ tool từ GitHub
+# - force_update: Bắt buộc cập nhật phiên bản mới
+# - latest_version: Phiên bản mới nhất trên server
+# - khóa thì đổi "disable_all": false, thành "disable_all": true,
+# =========================
