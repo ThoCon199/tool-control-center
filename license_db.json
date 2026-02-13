@@ -1,0 +1,10 @@
+{
+  "LICENSE-ABC-123": {
+    "active": true,
+    "note": "Khách A"
+  },
+  "LICENSE-XYZ-999": {
+    "active": false,
+    "note": "Bị thu hồi"
+  }
+}
