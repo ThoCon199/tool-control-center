@@ -6,7 +6,5 @@
 # - khóa thì đổi "disable_all": false, thành "disable_all": true,
 # =========================
 # - update xong thì nhớ đổi VERSION 
-# - 
-
-
+# - sao cho tool_update.json và YoutubeTool.py có cùng phiên bản mới
 # =========================
