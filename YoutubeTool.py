@@ -13,7 +13,7 @@ import requests
 # VERSION & LICENSE SYSTEM
 # =========================
 
-CURRENT_VERSION = "1.0.0"
+CURRENT_VERSION = "1.1.1"
 LICENSE_KEY = "LICENSE-ABC-123"   # đổi key theo từng khách
 UPDATE_CHECK_URL = "https://raw.githubusercontent.com/ThoCon199/tool-control-center/main/tool_update.json"
 
