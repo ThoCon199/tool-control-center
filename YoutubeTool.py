@@ -332,3 +332,4 @@ log_box = tk.Text(root, height=15, width=80); log_box.pack(padx=10,pady=10)
 root.mainloop()
 
 manhlabochay
+123
