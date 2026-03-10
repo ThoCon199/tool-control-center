@@ -9,12 +9,7 @@ import threading
 import sys
 import requests
 
-
-# =========================
-# 1️⃣ CONFIG / CONSTANTS
-# =========================
-
-CURRENT_VERSION = "1.1.1"
+CURRENT_VERSION = "1.0.0"
 LICENSE_KEY = "LICENSE-ABC-123"
 
 UPDATE_CHECK_URL = "https://raw.githubusercontent.com/ThoCon199/tool-control-center/main/tool_update.json"
@@ -25,11 +20,6 @@ NODE_PATH = r"C:\Program Files\nodejs\node.exe"
 
 DOWNLOAD_LOG = "downloaded_videos.json"
 LAST_CHANNEL_FILE = "last_channel.txt"
-
-
-# =========================
-# 2️⃣ GITHUB CONTROL SYSTEM
-# =========================
 
 def check_system_and_license():
     try:
@@ -77,11 +67,6 @@ def check_system_and_license():
         )
         sys.exit()
 
-
-# =========================
-# 3️⃣ AUTO UPDATE SYSTEM
-# =========================
-
 def auto_update():
     try:
         import time
@@ -112,11 +97,6 @@ def auto_update():
     except Exception as e:
         print("Update check failed:", e)
 
-
-# =========================
-# 4️⃣ GOOGLE SHEET TRACKING
-# =========================
-
 def send_channel_to_gsheet(channel_url):
 
     form_url = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSe7qd0SQ7euJwylcQw6_1nB60rM49OVNJxr0RJIh1VRzKEwjg/formResponse"
@@ -129,11 +109,6 @@ def send_channel_to_gsheet(channel_url):
         requests.post(form_url, data=data)
     except:
         pass
-
-
-# =========================
-# 5️⃣ DOWNLOAD CORE
-# =========================
 
 def load_downloaded():
     if os.path.exists(DOWNLOAD_LOG):
@@ -151,11 +126,6 @@ def ensure_output_folders():
     os.makedirs("output/video", exist_ok=True)
     os.makedirs("output/thumb", exist_ok=True)
     os.makedirs("output/tiêu đề", exist_ok=True)
-
-
-# =========================
-# 6️⃣ VIDEO DOWNLOAD ENGINE
-# =========================
 
 def download_video(video_url, log_callback, download_format):
 
@@ -241,11 +211,6 @@ def download_video(video_url, log_callback, download_format):
 
         return video_id
 
-
-# =========================
-# 7️⃣ FETCH VIDEO LIST
-# =========================
-
 def fetch_video_list(channel_url, mode, log_callback):
 
     sort_map = {
@@ -274,11 +239,6 @@ def fetch_video_list(channel_url, mode, log_callback):
             entries.reverse()
 
         return entries, len(entries)
-
-
-# =========================
-# 8️⃣ DOWNLOAD PROCESS
-# =========================
 
 def start_download():
 
@@ -368,18 +328,8 @@ def start_download():
 
         messagebox.showerror("Lỗi", f"Không thể lấy danh sách: {e}")
 
-
-# =========================
-# 9️⃣ RUN SYSTEM CHECK
-# =========================
-
 check_system_and_license()
 auto_update()
-
-
-# =========================
-# 🔟 GUI
-# =========================
 
 root = tk.Tk()
 
