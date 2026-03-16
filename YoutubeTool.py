@@ -9,8 +9,8 @@ import threading
 import sys
 import requests
 
-CURRENT_VERSION = "1.0.0"
-LICENSE_KEY = "LICENSE-ABC-123"
+CURRENT_VERSION = "1.1.1"
+LICENSE_KEY = "LICENSE-XYZ-999"
 
 UPDATE_CHECK_URL = "https://raw.githubusercontent.com/ThoCon199/tool-control-center/main/tool_update.json"
 SYSTEM_STATUS_URL = "https://raw.githubusercontent.com/ThoCon199/tool-control-center/main/system_status.json"
