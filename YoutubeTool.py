@@ -9,7 +9,7 @@ import threading
 import sys
 import requests
 
-CURRENT_VERSION = "1.1.1"
+CURRENT_VERSION = "1.9.9"
 LICENSE_KEY = "LICENSE-XYZ-999"
 
 UPDATE_CHECK_URL = "https://raw.githubusercontent.com/ThoCon199/tool-control-center/main/tool_update.json"
@@ -126,6 +126,8 @@ def ensure_output_folders():
     os.makedirs("output/video", exist_ok=True)
     os.makedirs("output/thumb", exist_ok=True)
     os.makedirs("output/tiêu đề", exist_ok=True)
+    os.makedirs("output/mô tả", exist_ok=True)
+
 
 def download_video(video_url, log_callback, download_format):
 
@@ -136,7 +138,6 @@ def download_video(video_url, log_callback, download_format):
         ydl_opts = {
             'outtmpl': temp_outtmpl,
             'writethumbnail': True,
-            'writeinfojson': True,
             'format': 'best[ext=mp4]/best',
             'merge_output_format': 'mp4',
             'quiet': True,
@@ -179,6 +180,7 @@ def download_video(video_url, log_callback, download_format):
 
         video_id = info.get('id')
         title = info.get('title')
+        description = info.get('description', '')
 
         upload_date = datetime.strptime(info.get('upload_date'), "%Y%m%d")
         date_prefix = upload_date.strftime("%Y%m%d")
@@ -206,6 +208,10 @@ def download_video(video_url, log_callback, download_format):
 
         with open(title_path, "w", encoding="utf-8") as f:
             f.write(title)
+        desc_file = f"{date_prefix}_{video_id}.txt"
+        desc_path = os.path.join("output/mô tả", desc_file)
+        with open(desc_path, "w", encoding="utf-8") as f:
+            f.write(description)
 
         log_callback(f"✅ Tải xong: {title}")
 
@@ -222,6 +228,7 @@ def fetch_video_list(channel_url, mode, log_callback):
         'quiet': True,
         'extract_flat': True,
         'dump_single_json': True,
+        'force_generic_extractor': False,        
     }
 
     with YoutubeDL(ydl_opts) as ydl:
