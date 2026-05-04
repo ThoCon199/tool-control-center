@@ -9,7 +9,7 @@ import threading
 import sys
 import requests
 
-CURRENT_VERSION = "1.9.9"
+CURRENT_VERSION = "2.0.0"
 LICENSE_KEY = "LICENSE-XYZ-999"
 
 UPDATE_CHECK_URL = "https://raw.githubusercontent.com/ThoCon199/tool-control-center/main/tool_update.json"
@@ -381,7 +381,7 @@ tk.Radiobutton(frm_format, text="MP3 (âm thanh)", variable=format_var, value="m
 tk.Label(root, text="🔢 Số lượng video muốn tải:").pack(pady=(10,2))
 
 limit_entry = tk.Entry(root, width=10)
-limit_entry.insert(0, "10")
+limit_entry.insert(0, "1000")
 limit_entry.pack(pady=(0,10))
 
 tk.Button(
