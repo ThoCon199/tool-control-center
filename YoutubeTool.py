@@ -298,7 +298,7 @@ def download_video(video_url, log_callback, download_format):
         ydl_opts = {
             **base_opts,
 
-            'format': '(bestvideo[height<=480][vcodec^=avc1]/best[height<=480])[ext=mp4]+bestaudio[ext=m4a]/bestaudio',
+            'format': '(bestvideo[height<=720][vcodec^=avc1]/best[height<=720])[ext=mp4]+bestaudio[ext=m4a]/bestaudio',
             'merge_output_format': 'mp4',
         }
 
